@@ -1,6 +1,6 @@
-class CreateGames < ActiveRecord::Migration[5.2]
+class CreateDeadstocks < ActiveRecord::Migration[5.2]
   def change
-    create_table :games do |t|
+    create_table :deadstocks do |t|
       t.integer :user_id
       t.integer :stock_id
 

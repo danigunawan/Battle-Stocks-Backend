@@ -1,4 +1,6 @@
 class Api::V1::StocksController < ApplicationController
+  skip_before_action :authorized#, only: [:create]
+
   # before_action :find_stock, only: [:show]
 
   # def show
@@ -10,15 +12,13 @@ class Api::V1::StocksController < ApplicationController
     render json: @stocks
   end
 
-  # private
-  #
-  #   def stock_params
-  #     params.permit(:year_open_price, :today_open_price, :name, :sector, :ceo, :symbol, :logo)
-  #   end
-  #
-  #   def find_stock
-  #     @stock = Stock.find(params[:id])
-  #   end
-  # end
+  private
 
-end
+    def stock_params
+      params.permit(:year_open_price, :today_open_price, :name, :sector, :ceo, :symbol, :logo)
+    end
+
+    def find_stock
+      @stock = Stock.find(params[:id])
+    end
+  end
