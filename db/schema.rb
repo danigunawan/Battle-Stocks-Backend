@@ -15,14 +15,8 @@ ActiveRecord::Schema.define(version: 2019_02_06_184813) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "deadstocks", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "stock_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "portfoliostocks", force: :cascade do |t|
+    t.boolean "win"
     t.integer "user_id"
     t.integer "stock_id"
     t.datetime "created_at", null: false
@@ -30,13 +24,13 @@ ActiveRecord::Schema.define(version: 2019_02_06_184813) do
   end
 
   create_table "stocks", force: :cascade do |t|
-    t.integer "year_open_price"
-    t.integer "today_open_price"
     t.string "name"
     t.string "sector"
     t.string "ceo"
     t.string "symbol"
     t.string "logo"
+    t.integer "oneYrPrice"
+    t.integer "openPrice"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,10 +1,10 @@
 class StockSerializer < ActiveModel::Serializer
-  attributes :id, :year_open_price, :today_open_price, :name, :sector, :ceo, :symbol, :logo
+  attributes :id, :name, :sector, :ceo, :symbol, :logo, :oneYrPrice, :openPrice
 
-  has_many :deadstocks
-  has_many :users, through: :deadstocks
+  # has_many :deadstocks
+  # has_many :users, through: :deadstocks
 
   has_many :portfoliostocks
-  has_many :users, through: :portfoliostocks 
+  has_many :users, through: :portfoliostocks
 
 end

@@ -6,19 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Stock.destroy_all
-User.destroy_all
-Portfoliostock.destroy_all
-Deadstock.destroy_all
+# # Stock.destroy_all
+# User.destroy_all
+# # Portfoliostock.destroy_all
 
 
 
-
-s1 = Stock.create(name:"Apple Inc", symbol:"AAPL")
-
-
+s1 = Stock.create(openPrice: 200, oneYrPrice: 200, name:"Apple Inc", symbol:"AAPL")
+s2 = Stock.create(openPrice: 25, oneYrPrice: 20, name:"Advanced Micro Devices", symbol:"AMD")
+#
+#
 u1 = User.create(bank_account:5000, username:"eeee", password:"eeee")
-
-p1 = Portfoliostock.create(user_id: u1, stock_id: s1)
-
-d1 = Deadstock.create(user_id:u1, stock_id: s1)
+u2 = User.create(bank_account:5000, username:"llll", password:"llll")
+#
+p1 = Portfoliostock.create(win:true, user_id: u1, stock_id: s1)
+p2 = Portfoliostock.create(win:false, user_id: u1, stock_id: s2)

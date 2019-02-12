@@ -25,20 +25,21 @@ class Api::V1::PortfoliostocksController < ApplicationController
     render json: @portfoliostocks
   end
 
-  # def create
-  #   @portfoliostock = portfoliostock.create(portfoliostock_params)
-  #   if @portfoliostock.valid?
-  #     render json: { portfoliostock: portfoliostockSerializer.new(@portfoliostock) }, status: :created
-  #   else
-  #     render json: { error: 'failed to create portfoliostock' }, status: :not_acceptable
-  #   end
-  # end
+  def create
+    @portfoliostock = Portfoliostock.create(portfoliostock_params)
+    # @portfoliostock = Portfoliostock.find_or_create_by(stock_id: portfoliostock_params[:stock_id], user_id: portfoliostock_params[:user_id])
+    if @portfoliostock.valid?
+      render json: { portfoliostock: portfoliostockSerializer.new(@portfoliostock) }, status: :created
+    else
+      render json: { error: 'failed to create portfoliostock' }, status: :not_acceptable
+    end
+  end
 
 
   private
 
     def portfoliostock_params
-      params.require(:portfoliostock).permit(:user_id, :stock_id)
+      params.require(:portfoliostock).permit(:user_id, :stock_id, :win)
     end
 
     # def find_portfoliostock
