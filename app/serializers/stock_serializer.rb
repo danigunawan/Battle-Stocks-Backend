@@ -7,4 +7,5 @@ class StockSerializer < ActiveModel::Serializer
   has_many :portfoliostocks
   has_many :users, through: :portfoliostocks
 
+
 end

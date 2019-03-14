@@ -26,11 +26,15 @@ class Api::V1::PortfoliostocksController < ApplicationController
   end
 
   def create
+
     @portfoliostock = Portfoliostock.create(portfoliostock_params)
+  
     # @portfoliostock = Portfoliostock.find_or_create_by(stock_id: portfoliostock_params[:stock_id], user_id: portfoliostock_params[:user_id])
     if @portfoliostock.valid?
-      render json: { portfoliostock: portfoliostockSerializer.new(@portfoliostock) }, status: :created
+
+      render json: { portfoliostock: PortfoliostockSerializer.new(@portfoliostock) }, status: :created
     else
+
       render json: { error: 'failed to create portfoliostock' }, status: :not_acceptable
     end
   end
@@ -45,14 +49,4 @@ class Api::V1::PortfoliostocksController < ApplicationController
     # def find_portfoliostock
     #   @portfoliostock = portfoliostock.find(params[:id])
     # end
-
-
-
-
-
-
-
-
-
-
-end
+  end

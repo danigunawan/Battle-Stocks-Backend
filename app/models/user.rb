@@ -5,8 +5,4 @@ class User < ApplicationRecord
   has_many :portfoliostocks
   has_many :stocks, through: :portfoliostocks
 
-
-  # has_many :deadstocks
-  # has_many :stocks, through: :deadstocks
-
 end

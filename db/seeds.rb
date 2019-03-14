@@ -19,5 +19,5 @@ s2 = Stock.create(openPrice: 25, oneYrPrice: 20, name:"Advanced Micro Devices", 
 u1 = User.create(bank_account:5000, username:"eeee", password:"eeee")
 u2 = User.create(bank_account:5000, username:"llll", password:"llll")
 #
-p1 = Portfoliostock.create(win:true, user_id: u1, stock_id: s1)
-p2 = Portfoliostock.create(win:false, user_id: u1, stock_id: s2)
+p1 = Portfoliostock.create( win:true, user_id: u1, stock_id: s1)
+p2 = Portfoliostock.create( win:false, user_id: u1, stock_id: s2)
