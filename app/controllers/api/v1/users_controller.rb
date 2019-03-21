@@ -1,8 +1,9 @@
 class Api::V1::UsersController < ApplicationController
   skip_before_action :authorized#, only: [:create]
-  before_action :find_user, only: [:show, :update]
+  # before_action :find_user, only: [:show, :update]
 
   def update
+    @user = User.find(params[:id])
     @user.update(user_params)
     if @user.save
       render json: @user, status: :accepted
@@ -12,12 +13,10 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
-    render json: @user
-  end
+    @user = User.find(params[:id])
 
-  def edit
-     @user = User.find(params[:id])
-   end
+    render json: @user.details
+  end
 
   # def destroy
   #   @user.destroy
@@ -25,7 +24,7 @@ class Api::V1::UsersController < ApplicationController
   #
   def index
     @users = User.all
-    render json: @users
+    render json: @users.yes.uniq
   end
 
   def create
@@ -41,12 +40,12 @@ class Api::V1::UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:bank_account, :username, :password)
+      params.require(:user).permit(:bank_account, :stock_account, :username, :password)
     end
 
-    def find_user
-      @user = User.find(params[:id])
-    end
+    # def find_user
+    #   @user = User.find(params[:id])
+    # end
   end
 
 #   class DogsController < ApplicationController

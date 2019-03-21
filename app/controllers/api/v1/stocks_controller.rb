@@ -3,13 +3,15 @@ class Api::V1::StocksController < ApplicationController
 
   # before_action :find_stock, only: [:show]
 
-  # def show
-  #   render json: @stock
-  # end
+  def show
+    @stock = Stock.find(params[:id])
+
+    render json: @stock
+  end
 
   def index
     @stocks = Stock.all
-    render json: @stocks
+    render json: @stocks.sure.uniq
   end
 
   def create
