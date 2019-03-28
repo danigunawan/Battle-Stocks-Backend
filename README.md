@@ -1,9 +1,7 @@
 # README
 
-Backend: Ruby on Rails
 
-Frontend: React.JS
-
-List of stocks fetched from IEX API where the user has the chance to bet on today's prices vs prices given from one year ago. You bet whether the share price increased/decreased in the past year, what the current price is and how much you're betting from your account. There is no limit to how much you can win or lose. If you are half right or all right, you can then purchase the stock at it s current price and it becomes part of your portfolio. 
+# Project Overview
+In Battle Stocks, the user is given a list of stocks fetched from IEX API as well as the company information and website to do more research. The user then bets on whether the share price increased/decreased over the past year, what today's price is and how much they are willing to bet. If the user is half right or completely right, the user can then purchase the stock at it s current price and it becomes part of their portfolio. Prices are always updating as fetched data is constantly taken from IEX. 
 
 
